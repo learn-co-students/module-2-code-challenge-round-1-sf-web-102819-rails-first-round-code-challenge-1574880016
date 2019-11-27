@@ -1,5 +1,13 @@
 <h1>Which Heroine will save the day?</h1>
 
+<%= form_with(url: "/search", method: "get") do %>
+  <%= label_tag(:q, "Search By Super Power:") %>
+  <%= text_field_tag(:q) %>
+  <%= submit_tag("Search") %>
+<% end %>
+<% if @search %>
+  <p> Search Results for <%=@search %>: </p>
+<%end %>
 <ul>
   <% @heroines.each do |heroine| %>
     <li>
