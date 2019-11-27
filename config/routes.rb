@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  resources :powers, only: [:index, :show, :new, :create, :edit, :update]
-  resources :heroines, only: [:index, :show, :new, :create, :edit, :update]
+  resources :powers, only: [:index, :show]
+  resources :heroines, only: [:index, :show, :new, :create]
 end
 
 # The form should also allow each heroine to be created with only one of the existing powers.
