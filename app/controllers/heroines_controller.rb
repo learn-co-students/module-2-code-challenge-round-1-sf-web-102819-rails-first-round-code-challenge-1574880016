@@ -1,5 +1,55 @@
 class HeroinesController < ApplicationController
+  
   def index
     @heroines = Heroine.all
+  end
+
+  def show
+    @heroine = Heroine.find(params[:id])
+  end
+
+  def new
+    @heroine = Heroine.new
+  end
+
+  def create
+    @heroine = Heroine.new(heroine_params)
+    if @heroine.valid?
+      @heroine.save
+      redirect_to @heroine
+    else
+      @errors = @heroine.errors.full_messages
+      render "new"
+    end
+  end
+
+  def edit
+    @heroine = Heroine.find(params[:id])
+  end
+
+  def update
+    @heroine = Heroine.find(params[:id])
+    if @heroine.update(heroine_params)
+      redirect_to @heroine
+    else 
+      render "edit"
+    end
+  end
+
+  def search
+    if params[:q] != ""
+      @search = params[:q]
+      @heroines = Heroine.all.select {|hero| hero.power.name.include?(params[:q].downcase)}
+      render "index"
+    else
+      @heroines = Heroine.all
+      render "index"
+    end
+  end
+
+  private
+
+  def heroine_params
+    params.require(:heroine).permit(:name, :super_name, :power_id)
   end
 end
