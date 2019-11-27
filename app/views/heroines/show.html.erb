@@ -1,0 +1,9 @@
+<h1><%=@heroine.name%>'s Profile Page:</h1><br>
+
+<h3>Current Super Name:</h3>
+<%=@heroine.super_name%><br>
+
+<h3>Super Power:</h3>
+<ul>
+<%=link_to @power.name, power_path(@power) %>
+</ul>
