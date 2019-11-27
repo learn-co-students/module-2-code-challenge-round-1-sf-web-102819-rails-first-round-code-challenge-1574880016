@@ -1,0 +1,7 @@
+<h1> <%=@heroine.super_name%> </h1>
+
+<p> <%= @heroine.super_name %>, born with the name <%=@heroine.name %> is a blessing to our planet! </p>
+
+<p> She has save the world countless times using her power of <%=link_to @heroine.power.name, @heroine.power%>. </p>
+
+<p>  <%=link_to "Return to heroine index", '/heroines' %> </p>

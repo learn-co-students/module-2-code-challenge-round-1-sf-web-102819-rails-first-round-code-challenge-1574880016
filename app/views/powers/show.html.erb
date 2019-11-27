@@ -1,0 +1,11 @@
+<h1> <%= @power.name.capitalize %> </h1>
+<p> <%=@power.description.capitalize %>!</p>
+
+<h2> These heroines have <%=@power.name %>: </h2>
+<ol>
+    <% @power.heroines.each do |hero| %>
+        <li> <%=link_to hero.name, hero %> </li>
+    <% end %>
+</ol>
+
+<p>  <%=link_to "Return to power index", '/powers' %> </p>
